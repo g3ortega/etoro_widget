@@ -13,7 +13,7 @@ var etoro_dl_id  = '';
 
 
 try {
-    $('body').html()
+    jQuery('body').html()
 } catch (err) {
     etoro_jquery = false;
 }
@@ -53,7 +53,7 @@ function loadscriptAndCss() {
  if (alreadyInjected == false){
     var cssAndScript = '<link rel="stylesheet" href="https://pages.etoro.com/widgets/etoro-links-wrapper/style.css" type="text/css" />';
     cssAndScript += '<script  type="text/javascript" src="https://cdn.jsdelivr.net/gh/g3ortega/etoro_widget/link-wrapper.js"></script>';
-    $('head').append(cssAndScript);
+    jQuery('head').append(cssAndScript);
 	alreadyInjected =true;
  }
 

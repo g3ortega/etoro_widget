@@ -12,10 +12,10 @@ function etoro_getAJAX(url, type, callback) {
 
             if (type == 'xml') {
 
-                callbackFunction($.parseXML(xmlhttp.responseText));
+                callbackFunction(jQuery.parseXML(xmlhttp.responseText));
 
             } else if (type == 'json') {
-                callbackFunction($.parseJSON(xmlhttp.responseText));
+                callbackFunction(jQuery.parseJSON(xmlhttp.responseText));
 
             } else {
                 callbackFunction(xmlhttp.responseText);
@@ -35,9 +35,9 @@ function etoro_getAJAX(url, type, callback) {
 
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             if (type == 'xml') {
-                callbackFunction($.parseXML(xmlhttp.responseText));
+                callbackFunction(jQuery.parseXML(xmlhttp.responseText));
             } else if (type == 'json') {
-                callbackFunction($.parseJSON(xmlhttp.responseText));
+                callbackFunction(jQuery.parseJSON(xmlhttp.responseText));
             } else {
                 callbackFunction(xmlhttp.responseText);
             }
@@ -113,7 +113,7 @@ function start_w() {
     etoro_keywords = []; // etoro_keywords.split(",");
     etoro_category = []; //etoro_category.split(",");
 
-    $(etoro_container).addClass("etoroLinks");
+    jQuery(etoro_container).addClass("etoroLinks");
 
     for (i = 0; i < etoro_category.length; i++) {
 
@@ -141,40 +141,40 @@ function start_w() {
     }
 
 
-    $("<div class='emptyDiv'></div>").appendTo('body');
+    jQuery("<div class='emptyDiv'></div>").appendTo('body');
 
-    $(".etoroLinks .etoroItem").each(function () {
-        var _this = $(this);
-        var itemWidth = $(_this).wrap('<div class="InfiniteWidth" style="width:500px"></div>').find(".toolTip").css({
+    jQuery(".etoroLinks .etoroItem").each(function () {
+        var _this = jQuery(this);
+        var itemWidth = jQuery(_this).wrap('<div class="InfiniteWidth" style="width:500px"></div>').find(".toolTip").css({
             'position': 'relative',
             'display': 'inline-block'
         }).outerWidth() + e_ieFixWidth;
 
-        $(_this).unwrap('.InfiniteWidth').find(".toolTip").css({
+        jQuery(_this).unwrap('.InfiniteWidth').find(".toolTip").css({
             'display': 'none',
             'position': 'absolute'
         }).width(itemWidth);
-        $(_this).find(".toolTip .conteiner .arrow-bottom").css({
+        jQuery(_this).find(".toolTip .conteiner .arrow-bottom").css({
             'left': (itemWidth / 2 - 5)
         });
-        var left = -($(_this).find('.toolTip').width() / 2) + $(_this).width() / 2;
-        $(_this).find('.toolTip').css({
+        var left = -(jQuery(_this).find('.toolTip').width() / 2) + jQuery(_this).width() / 2;
+        jQuery(_this).find('.toolTip').css({
             'left': left
         });
 
 
     });
 
-    $(".etoroLinks .etoroItem").mouseenter(function () {
+    jQuery(".etoroLinks .etoroItem").mouseenter(function () {
         mouseHover = true;
-        thisElement = $(this);
-        $(this).find('.toolTip').stop().fadeIn(200);
+        thisElement = jQuery(this);
+        jQuery(this).find('.toolTip').stop().fadeIn(200);
         animateIcons = setTimeout('showEtoroIcon(thisElement)', 2000);
     }).mouseleave(function () {
         mouseHover = false;
         clearTimeout(animateIcons);
-        $('.etoroLinks .etoroItem .iconEtoro').fadeTo(0, 0);
-        $(this).find('.toolTip').fadeOut(30);
+        jQuery('.etoroLinks .etoroItem .iconEtoro').fadeTo(0, 0);
+        jQuery(this).find('.toolTip').fadeOut(30);
     });
 
 }
@@ -200,25 +200,25 @@ function wrapCatLinks(catArray) {
 
 function wrapItem(itemInArray) {
 
-    $(etoro_container).each(function () {
+    jQuery(etoro_container).each(function () {
 
         var newHtml = replaceInsideText(this, itemInArray.name, "<span class='replaceable'>" + itemInArray.name + "</span>");
-        $(this).html(newHtml);
+        jQuery(this).html(newHtml);
 
 
-        $("span.replaceable").each(function (index) {
+        jQuery("span.replaceable").each(function (index) {
 
-            if ($(this).parents("a").length < 1 && linkCounter < etoro_limit) {
+            if (jQuery(this).parents("a").length < 1 && linkCounter < etoro_limit) {
 
                 linkCounter++;
 				var url = "https://www.etoro.com/partners/aw.aspx?B=" + etoro_bannerId + "&A=" + etoro_affiliateId + "&task=Click&SubAffiliateID=" + etoro_subAffiliateId + "&TargetUrl=" + itemInArray.url + "?dl=" + etoro_dl_id;
                 if (etoro_affiliateId == 'blog'){
 					url = itemInArray.url + "?dl=" + etoro_dl_id;
 				}
-				$(this).replaceWith("<a class='etoroItem' href='"+url+"'>" + itemInArray.name + "<span class='toolTip " + itemInArray.name.toLowerCase() + "'><span class='conteiner'><span class='image'><span class='iconStocks'></span><span class='iconEtoro'></span></span><span class='right'><span class='text'>" + getInsideText(itemInArray) + "</span><span class='arrow-right'></span></span><span class='arrow-bottom'></span></span></span></a>")
+				jQuery(this).replaceWith("<a class='etoroItem' href='"+url+"'>" + itemInArray.name + "<span class='toolTip " + itemInArray.name.toLowerCase() + "'><span class='conteiner'><span class='image'><span class='iconStocks'></span><span class='iconEtoro'></span></span><span class='right'><span class='text'>" + getInsideText(itemInArray) + "</span><span class='arrow-right'></span></span><span class='arrow-bottom'></span></span></span></a>")
             } else {
 
-                $(this).replaceWith(itemInArray.name)
+                jQuery(this).replaceWith(itemInArray.name)
             }
         });
 
@@ -229,19 +229,19 @@ function wrapItem(itemInArray) {
 
 function showEtoroIcon(thisElement) {
     if (mouseHover) {
-        $(thisElement).find('.iconEtoro').fadeTo(300, 1);
+        jQuery(thisElement).find('.iconEtoro').fadeTo(300, 1);
         setTimeout('hideEtoroIcon(thisElement)', 2000);
     }
 }
 
 function hideEtoroIcon(thisElement) {
     if (mouseHover) {
-        $(thisElement).find('.iconEtoro').fadeTo(300, 0);
+        jQuery(thisElement).find('.iconEtoro').fadeTo(300, 0);
         setTimeout('showEtoroIcon(thisElement)', 2000);
     }
 }
 
-$.fn.replaceText = function (search, replace, text_only) {
+jQuery.fn.replaceText = function (search, replace, text_only) {
     return this.each(function () {
         var node = this.firstChild,
             val,
@@ -259,7 +259,7 @@ $.fn.replaceText = function (search, replace, text_only) {
 
                         if (!text_only && /</.test(new_val)) {
 
-                            $(node).before(new_val);
+                            jQuery(node).before(new_val);
                             remove.push(node);
                         } else {
 
@@ -269,7 +269,7 @@ $.fn.replaceText = function (search, replace, text_only) {
                 }
             } while (node = node.nextSibling);
         }
-        remove.length && $(remove).remove();
+        remove.length && jQuery(remove).remove();
 
     });
 };
@@ -291,22 +291,22 @@ function replaceInsideText(div, replace_this, with_this) {
     console.log(testsrt.replace(searchRegex, with_this));
     */
 
-    $(div, div + " *").replaceText(searchRegex, with_this);
-    $(div).find("*").replaceText(searchRegex, with_this);
+    jQuery(div, div + " *").replaceText(searchRegex, with_this);
+    jQuery(div).find("*").replaceText(searchRegex, with_this);
 
 }
 
-var searchInput = $("#keyword"),
+var searchInput = jQuery("#keyword"),
     searchTerm, searchRegex;
 //addToolTip();
-//$("form").submit(function(){highLight();});
-$("#remove-highlight").bind("click", function () {
-    $("#container").removeHighlight();
+//jQuery("form").submit(function(){highLight();});
+jQuery("#remove-highlight").bind("click", function () {
+    jQuery("#container").removeHighlight();
 });
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
-    if ($('html').hasClass('ie')) {
+    if (jQuery('html').hasClass('ie')) {
         e_ieFixWidth = 1;
     }
 
