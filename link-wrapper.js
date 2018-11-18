@@ -72,29 +72,29 @@ var commoditiesArray;
 
 
 var brandArray = [
-    etoroItemSettings('eToro', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
+    etoroItemSettings('eToro', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
     etoroItemSettings('Openbook', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
-    etoroItemSettings('Social Trading', null, null, 'Discover Social Trading', 'http://www.etoro.com/Social-Trading.aspx'),
-    etoroItemSettings('WebTrader', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('CopyTrader', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Follow', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Copy', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Investment Network', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Social Investing', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Online Trading', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Mobile Trading', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Social Alerts', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Mobile Trader', null, null, 'Discover Social Trading', 'http://www.etoro.com/'),
-    etoroItemSettings('Learn trading', null, null, 'Learn how to trade', 'http://www.etoro.com/lessons/education-center.aspx'),
-    etoroItemSettings('Webinar', null, null, 'Learn how to trade', 'http://www.etoro.com/lessons/education-center.aspx')
+    etoroItemSettings('Social Trading', null, null, 'Discover Social Trading', 'https://www.etoro.com/Social-Trading.aspx'),
+    etoroItemSettings('WebTrader', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('CopyTrader', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Follow', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Copy', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Investment Network', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Social Investing', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Online Trading', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Mobile Trading', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Social Alerts', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Mobile Trader', null, null, 'Discover Social Trading', 'https://www.etoro.com/'),
+    etoroItemSettings('Learn trading', null, null, 'Learn how to trade', 'https://www.etoro.com/lessons/education-center.aspx'),
+    etoroItemSettings('Webinar', null, null, 'Learn how to trade', 'https://www.etoro.com/lessons/education-center.aspx')
 ]
 
 var partnersArray = [
-    etoroItemSettings('CPA', null, null, 'Join The Best Financial Affiliate Program', 'http://etoropartners.com'),
-    etoroItemSettings('Affiliates', null, null, 'Join The Best Financial Affiliate Program', 'http://etoropartners.com'),
-    etoroItemSettings('Affiliate program', null, null, 'Join The Best Financial Affiliate Program', 'http://etoropartners.com'),
-    etoroItemSettings('Affiliation', null, null, 'Join The Best Financial Affiliate Program', 'http://etoropartners.com'),
-    etoroItemSettings('Internet Marketing', null, null, 'Join The Best Financial Affiliate Program', 'http://etoropartners.com')
+    etoroItemSettings('CPA', null, null, 'Join The Best Financial Affiliate Program', 'https://etoropartners.com'),
+    etoroItemSettings('Affiliates', null, null, 'Join The Best Financial Affiliate Program', 'https://etoropartners.com'),
+    etoroItemSettings('Affiliate program', null, null, 'Join The Best Financial Affiliate Program', 'https://etoropartners.com'),
+    etoroItemSettings('Affiliation', null, null, 'Join The Best Financial Affiliate Program', 'https://etoropartners.com'),
+    etoroItemSettings('Internet Marketing', null, null, 'Join The Best Financial Affiliate Program', 'https://etoropartners.com')
 ]
 
 
@@ -219,7 +219,7 @@ function wrapItem(itemInArray) {
             if ($(this).parents("a").length < 1 && linkCounter < etoro_limit) {
 
                 linkCounter++;
-				var url = "http://www.etoro.com/partners/aw.aspx?B=" + etoro_bannerId + "&A=" + etoro_affiliateId + "&task=Click&SubAffiliateID=" + etoro_subAffiliateId + "&TargetUrl=" + itemInArray.url + "?dl=" + etoro_dl_id;
+				var url = "https://www.etoro.com/partners/aw.aspx?B=" + etoro_bannerId + "&A=" + etoro_affiliateId + "&task=Click&SubAffiliateID=" + etoro_subAffiliateId + "&TargetUrl=" + itemInArray.url + "?dl=" + etoro_dl_id;
                 if (etoro_affiliateId == 'blog'){
 					url = itemInArray.url + "?dl=" + etoro_dl_id;
 				}
@@ -321,7 +321,7 @@ $(document).ready(function () {
         e_ieFixWidth = 1;
     }
 
-    etoro_getAJAX('https://pages.etoro.com/proxy.php?url=http://pages.etoro.com/widgets/etoro-links-wrapper/inc/get_markets_list.php', 'json', function (data) {
+    etoro_getAJAX('https://pages.etoro.com/proxy.php?url=https://pages.etoro.com/widgets/etoro-links-wrapper/inc/get_markets_list.php', 'json', function (data) {
         stocksArray = data[0];
         currenciesArray = data[1];
         commoditiesArray = data[2];
