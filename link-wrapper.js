@@ -1,5 +1,4 @@
 function etoro_getAJAX(url, type, callback) {
-
     var xmlhttp;
     var callbackFunction = callback;
 
@@ -54,7 +53,6 @@ function etoro_getAJAX(url, type, callback) {
 
 }
 
-
 function etoroItemSettings(name, textStart, textEnd, textFull, url) {
     var obj = {};
     obj.name = name;
@@ -100,7 +98,6 @@ var partnersArray = [
 
 var generalCatArray;
 
-
 var animateIcons;
 var thisElement;
 var mouseHover = false;
@@ -114,8 +111,7 @@ if (typeof (etoro_bannerId) == 'undefined' || etoro_bannerId == '') {
 function start_w() {
 
     etoro_keywords = []; // etoro_keywords.split(",");
-    etoro_category = etoro_category.split(",");
-
+    etoro_category = []; //etoro_category.split(",");
 
     $(etoro_container).addClass("etoroLinks");
 
@@ -169,7 +165,6 @@ function start_w() {
 
     });
 
-
     $(".etoroLinks .etoroItem").mouseenter(function () {
         mouseHover = true;
         thisElement = $(this);
@@ -181,9 +176,6 @@ function start_w() {
         $('.etoroLinks .etoroItem .iconEtoro').fadeTo(0, 0);
         $(this).find('.toolTip').fadeOut(30);
     });
-
-
-
 
 }
 
@@ -229,9 +221,6 @@ function wrapItem(itemInArray) {
                 $(this).replaceWith(itemInArray.name)
             }
         });
-
-
-
 
     });
 
@@ -357,8 +346,5 @@ $(document).ready(function () {
 
         start_w();
     });
-
-
-
 
 });
