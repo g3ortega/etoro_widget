@@ -52,7 +52,7 @@ function init_etoro_w() {
 function loadscriptAndCss() { 
  if (alreadyInjected == false){
     var cssAndScript = '<link rel="stylesheet" href="https://pages.etoro.com/widgets/etoro-links-wrapper/style.css" type="text/css" />';
-    cssAndScript += '<script  type="text/javascript" src="https://raw.githubusercontent.com/g3ortega/etoro_widget/master/link-wrapper.js"></script>';
+    cssAndScript += '<script  type="text/javascript" src="https://cdn.jsdelivr.net/gh/g3ortega/etoro_widget/link-wrapper.js"></script>';
     $('head').append(cssAndScript);
 	alreadyInjected =true;
  }
