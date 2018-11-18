@@ -113,7 +113,7 @@ if (typeof (etoro_bannerId) == 'undefined' || etoro_bannerId == '') {
 
 function start_w() {
 
-    etoro_keywords = etoro_keywords.split(",");
+    etoro_keywords = []; // etoro_keywords.split(",");
     etoro_category = etoro_category.split(",");
 
 
